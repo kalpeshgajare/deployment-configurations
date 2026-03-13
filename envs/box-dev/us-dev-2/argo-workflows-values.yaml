@@ -1,0 +1,102 @@
+## Description: This is the values.yaml file that should be d-c repo (argo-workflows-values.yaml), and can be used for 'helm template'ing locally.
+##  This includes extraObjects which is an array of extra k8s manifest needed that are not included in default/stock Argo chart.
+## Generate template for testing locally:
+##  cd helm/argo-workflows
+##  helm template "argo-workflows" . -f values.yaml -f values-extra-manifests.yaml --namespace datalake > test_deploy.yaml
+
+bloxinabox: true # set to "false" if not a bloxinabox environment
+dbclaim:
+  dsn: "dsn.txt"
+images:
+  # -- imagePullPolicy to apply to all containers
+  pullPolicy: IfNotPresent # Defaults to `Always`
+  tag: v3.7.9 # From chainguard.
+crds: 
+  install: true  # Set to false to prevent double install
+
+workflow:
+  serviceAccount:
+    # -- Specifies whether a service account should be created
+    create: true
+
+controller:
+  image:
+    registry: "harbor.services.sdp.infoblox.com"
+    repository: "infobloxcto-cgr/argo-workflowcontroller"
+    tag: "v3.7.9" # From chainguard
+  persistence:
+    archive: true
+    archiveTTL: 30d # default is forever
+    postgresql:
+      host: localhost # bloxinabox - dbproxy
+      port: 5432
+      database: datalake-argo-workflows-persistence-db
+      tableName: argo_workflows
+      ssl: true
+      sslMode: disable
+      # the database secrets must be in the same namespace of the controller
+      userNameSecret: # Leaving default values as username/password are not needed for box environments. The creds are managed in dbproxy.
+        name: datalake-argo-workflows-persistence-secret
+        key: username
+      passwordSecret:
+        name: datalake-argo-workflows-persistence-secret
+        key: password
+
+  # -- Default values that will apply to all Workflows from this controller, unless overridden on the Workflow-level.
+  # Only valid for 2.7+
+  ## See more: https://argoproj.github.io/argo-workflows/default-workflow-specs/
+  workflowDefaults:
+    metadata:
+      annotations:
+        argo: workflows
+      namespace: datalake
+    spec:
+      # Ensure Linkerd proxy is injected into all pods created by Workflows
+      # podMetadata:
+      #   annotations:
+      #     linkerd.io/inject: "enabled"
+      imagePullSecrets:
+        - name: "{{ .Release.Name }}-infobloxctokey" # Can be overwritten in d-c repo with "infobloxctokey" for non-box envs
+      serviceAccountName: argo-workflow
+  metricsConfig:
+    enabled: false
+  telemetryConfig:
+    enabled: false
+
+  serviceAccount:
+    # -- Service account name
+    name: "argo-controller"
+  workflowNamespaces: # add all namespaces where argo workflows will run. Effective only when singleNamespace = false.
+    - datalake
+  replicas: 1
+  # Inject Linkerd proxy into the workflow controller itself (optional but recommended for observability)
+  # podAnnotations:
+  #   linkerd.io/inject: "enabled"
+  podLabels:
+    persistance.atlas.infoblox.com/claim: argo-workflows-dbapi
+    persistance.atlas.infoblox.com/class: default
+    persistance.atlas.infoblox.com/dbproxy: enabled
+
+server:
+  image:
+    registry: "harbor.services.sdp.infoblox.com"
+    repository: "infobloxcto-cgr/argo-cli"
+    tag: "v3.7.9" 
+  serviceAccount:
+    # -- Service account name
+    name: "argo-server"
+  replicas: 2
+  extraArgs:
+    - --auth-mode=server # disables auth to argo UI - localhost:2746
+  # Inject Linkerd proxy into the Argo server (optional but recommended for observability)
+  # podAnnotations:
+  #   linkerd.io/inject: "enabled"
+  podLabels:
+    persistance.atlas.infoblox.com/claim: argo-workflows-dbapi
+    persistance.atlas.infoblox.com/class: default
+    persistance.atlas.infoblox.com/dbproxy: enabled
+executor:
+  image:
+    registry: "harbor.services.sdp.infoblox.com"
+    repository: "infobloxcto-cgr/argo-exec"
+    tag: "v3.7.9"
