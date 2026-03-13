@@ -1,0 +1,60 @@
+crds:
+    enabled: false
+
+# uses postgres pod instead of RDS
+db:
+  athena:
+    server: appinfra-grafana-postgresql
+  name: appinfra_grafana
+  user: postgres
+  passwordSecret:
+    name: appinfra-grafana-postgresql
+    key: postgresql-password
+  ssl_mode: disable
+postgresql:
+  enabled: true
+  postgresqlDatabase: appinfra_grafana
+  postgresqlPassword: appinfra_grafana
+  resources:
+    limits:
+      cpu: null
+      memory: 512Mi
+    requests:
+      cpu: 1500m
+      memory: 200Mi
+
+bloxinabox: true
+
+grafana:
+  datasources:
+    prometheus:
+      uid: "000000001"
+      url: http://cortex.services.sdp.infoblox.com/prometheus
+      jsonData:
+        httpHeaderName1: X-Scope-OrgID
+        timeInterval: 6s
+        tlsSkipVerify: true
+      secureJsonData:
+        httpHeaderValue1: "{{ .Values.env }}"
+    appinfra-prometheus:
+      name: "appinfra-prometheus"
+      type: prometheus
+      uid: "appinfra-prometheus-00001"
+      url: http://prometheus-service.ngp-cp.svc:80
+      jsonData:
+        tlsSkipVerify: true
+        timeInterval: "5s"
+  
+  separateLokiDatasources:
+    loki-infra-logging:
+      name: loki-infra-logging
+      uid: "loki-infra-logging-{{ .Values.env }}-001"
+      type: loki
+      url: http://loki.services.sdp.infoblox.com
+      customJsonData:
+        httpHeaderName1: X-Scope-OrgID
+        timeInterval: 5s
+        tlsSkipVerify: true
+        timeout: "300"
+      secureJsonData:
+        httpHeaderValue1: "{{ .Values.env }}"
