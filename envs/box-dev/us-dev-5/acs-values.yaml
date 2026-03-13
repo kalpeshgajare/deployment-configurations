@@ -1,0 +1,24 @@
+bloxinabox: true
+env: us-dev-5
+
+host:
+  csp:
+    domain: csp.us-dev-5.eng.test.infoblox.com
+
+s3:
+  useExistingBucket: true
+  bucketClass: atg
+
+image:
+  tagMigrate: 1.0.3-0-g3510bf1-j2
+
+spire:
+  enable: true
+
+db:
+  useExistingSource: true
+
+apps:
+  ai:
+    sync:
+      interval: 0
