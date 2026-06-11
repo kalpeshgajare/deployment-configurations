@@ -1,0 +1,1568 @@
+envs:
+  azure-ddiaas-dev:
+    azure-ddi-dev-us:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+  box-dev:
+    cd-poc:
+      bloxinabox: true
+      version: v1.25
+      flux_bootstrap: true
+    box-3:
+      bloxinabox: true
+      version: v1.25
+      installRetries: -1
+      upgradeRetries: -1
+      flux_bootstrap: true
+    box-4:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.25
+    dev-hub:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      flux_bootstrap: true
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+      version: v1.25
+    us-dev-5:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteAppNamespace: true
+      version: v1.25
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    us-dev-4:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteAppNamespace: true
+      version: v1.25
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    us-dev-2:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteAppNamespace: true
+      version: v1.25
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    o11y-box:
+      bloxinabox: true
+      flux_bootstrap: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    box-5:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.31
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    data-eng-dev:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.31
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    us-dev-tmp:
+      ibapp_only: true
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.35
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+      globalDependencies:
+        - name: kyverno
+        - name: kyverno-policy
+  gcp-dns-dev:
+    dns-us-central1-dev:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.31
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-central1-gcp:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.31
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-central1-sandbox:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.31
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+  gcp-dns-stage:
+    dns-us-east1-staging:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.31
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-central1-staging:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-east1-staging:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+  gcp-dns-prod:
+    dns-us-east1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-northeast2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-africa-south1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-australia-southeast1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-south1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-southamerica-east1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-east5-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-southeast1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west4-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-east4-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-west4-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-central1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-east1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west3-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-west1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-northeast1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-west2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-southeast2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-me-central2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-west3-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-northeast3-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-south1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-south2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-me-central1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-northamerica-northeast1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-east2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-australia-southeast2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west9-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-north1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west6-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-me-west1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-northamerica-northeast2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-southamerica-west1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-central2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-southwest1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west10-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-north2-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west8-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-europe-west12-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-northamerica-south1-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-us-east7-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    dns-asia-southeast3-production:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.28
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+  gcp-dev-shared:
+    vault-gcp-dev-usce1:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.30
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-dev/central-harbor-proxy-cache/harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    devops-admin-gcp-dev-usce1:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.30
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-dev/central-harbor-proxy-cache/harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    cicd-gcp-dev-usce1:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.30
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-dev/central-harbor-proxy-cache/harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+  gcp-prod-shared:
+    cicd-gcp-prod-usce1:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.30
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    vault-gcp-prod-usce1:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.30
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+    devops-admin-gcp-prod-usce1:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.30
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+  dev:
+    env-a:
+      roles:
+        - admin
+      spin_app_name: env-a-cicd
+    poseidon-dev:
+      spin_app_name: poseidon-dev
+      version: v1.25
+    tdpops-dev-5-va-1:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteAppNamespace: true
+  ddiaas-dev:
+    ddi-dev-use1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.25
+    ddi-qa-use1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.25
+    ddi-qa-aps1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.29
+    ddi-dev-ase1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.35
+  ddiaas-stage:
+    ddi-stg-use1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.25
+    ddi-stg-aps1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+  ddiaas-prod:
+    ddi-prd-nva1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-mmb1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-frk1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-spa1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-eu-prd-ldn1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-cac1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-sgp1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-hkg1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-ogn1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-ctn1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-syd1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    ddi-prd-oho1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+  dev-shared:
+    cicd-dev:
+      bloxinabox: true
+      flux_bootstrap: true
+      repository:
+        type: oci
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    devops-admin-dev:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    harbor-dev:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    harbor-up:
+      bloxinabox: true
+      flux_bootstrap: false
+      repository:
+        type: oci
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    karmada-box:
+      bloxinabox: true
+      flux_bootstrap: true
+      repository:
+        type: oci
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    vault-dev:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services-dev.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+  gcp-ddiaas-dev:
+    gcp-ddi-dev-use1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.28
+    gcp-ddi-qa-use1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.29
+    gcp-ddi-dev-ase1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.29
+    gcp-ddi-dev-ase2:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.29
+    gcp-ddi-dev-sgp1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.29
+  gcp-ddiaas-stage:
+    gcp-ddi-stg-ase1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.29
+  gcp-ddiaas-prod:
+    gcp-ddi-prd-ogn1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+    gcp-ddi-eu-prd-ldn1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.30
+  gcp-portal-dev:
+    td-mvp-1-usce1:
+      bloxinabox: true
+      flux_bootstrap: true
+      version: v1.31
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://us-docker.pkg.dev/gcp-eng-shared-services-prod/central-harbor-proxy-cache/charts
+        interval: 10m
+        provider: gcp
+  gov-box-dev:
+    gov-dev-2:
+      bloxinabox: true
+      flux_bootstrap: true
+      installRetries: 0
+      upgradeRetries: 0
+      postRenderers:
+        deleteNamespace: true
+      version: v1.25
+  gov-box-stage:
+    gov-stg-2:
+      bloxinabox: true
+      flux_bootstrap: true
+      linkerd: true
+      installRetries: 0
+      upgradeRetries: 0
+      postRenderers:
+        deleteAppNamespace: true
+      version: v1.25
+  gov-dev:
+    gdev-a:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      spin_app_name: gdev-a
+      version: v1.27
+    gdev-1:
+      fluxcd: true
+      flux_bootstrap: true
+      spin_app_name: gdev-1
+      version: v1.27
+      postRenderers:
+        deleteNamespace: true
+    gdev-s-1:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      spin_app_name: gdev-s-1
+      version: v1.27
+  gov-prod:
+    gprd-a:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      spin_app_name: gprd-a
+      spin_overrides:
+        env_overrides:
+          valuesEnabled: false
+          versionEnabled: false
+          notificationsEnabled: false
+      version: v1.18
+    gprd-1:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      spin_app_name: gprd-1
+      spin_overrides:
+        env_overrides:
+          valuesEnabled: false
+          versionEnabled: false
+          notificationsEnabled: false
+        mercury:
+          pipelineTimeout: 60
+      version: v1.18
+    gprd-s-1:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      spin_app_name: gprd-s-1
+      spin_overrides:
+        env_overrides:
+          valuesEnabled: false
+          versionEnabled: false
+          notificationsEnabled: false
+      version: v1.18
+  gov-box-prod:
+    gov-prd-2:
+      bloxinabox: true
+      fluxcd: true
+      installRetries: 0
+      linkerd: true
+      upgradeRetries: 0
+      flux_bootstrap: true
+      postRenderers:
+        deleteAppNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+  gov-prod-shared:
+    vault-gprd:
+      linkerd: true
+      bloxinabox: true
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    harbor-gprd:
+      linkerd: true
+      bloxinabox: true
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    gov-prd-a:
+      linkerd: true
+      bloxinabox: true
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    o11y-gprd:
+      linkerd: true
+      bloxinabox: true
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.prd.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+  gov-stage-shared:
+    vault-gstg:
+      linkerd: true
+      bloxinabox: true
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.stg.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.stg.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    harbor-gstg:
+      linkerd: true
+      bloxinabox: true
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.stg.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.stg.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    gov-stg-a:
+      linkerd: true
+      bloxinabox: true
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.stg.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.stg.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    o11y-gstg:
+      linkerd: true
+      bloxinabox: true
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      version: v1.32
+      repository:
+        type: oci
+        url: oci://harbor-services.sdp.stg.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor-services.sdp.stg.infoblox-fedcloud.com/central-proxy-cache-charts/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+  gov-stage:
+    gstg-a:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      roles:
+        - admin
+      spin_app_name: gstg-a
+      version: v1.27
+    gstg-1:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      spin_app_name: gstg-1
+      version: v1.27
+      spin_overrides:
+        mercury:
+          pipelineTimeout: 60
+    gstg-s-1:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      spin_app_name: gstg-s-1
+      version: v1.27
+  integration:
+    tdpops-dev-2-va-1:
+      spin_app_name: tdpops-dev-2-va-1
+      version: v1.25
+  box-sandbox:
+    sre-sand:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.25
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+  stage:
+    poseidon-preprod:
+      spin_app_name: poseidon-preprod
+      version: v1.25
+    tdpops-stg-1-va-1:
+      fluxcd: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+  com-stage:
+    eu-stg-1:
+      bloxinabox: true
+      flux_bootstrap: true
+    us-stg-1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteAppNamespace: true
+      version: v1.25
+      intKeysToStr: true
+    stage-hub:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.31
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+  pop-prod:
+    spin-pop:
+      spin_app_name: pop-production
+    br-1:
+    br-2:
+    ca-1:
+    ca-2:
+    cp-1:
+    cp-2:
+    fk-1:
+    fk-2:
+    hk-1:
+    hk-2:
+    hy-1:
+    hy-2:
+    jp-1:
+    jp-2:
+    ld-1:
+    ld-2:
+    mb-1:
+    mb-2:
+    oh-1:
+    oh-2:
+    prd-3:
+    prd-4:
+    sg-1:
+    sg-2:
+    sp-1:
+    sp-2:
+    sy-1:
+    sy-2:
+    to-1:
+    to-2:
+  prod:
+    prd-a:
+      roles:
+        - admin
+        - not-ngp-cp
+      spin_app_name: prd-a-cicd
+      spin_overrides:
+        ib-fluentd:
+          templates:
+            prod: prod
+      version: v1.25
+    prd-1:
+      roles:
+        - konk-stable
+        - notifications-stable
+      spin_app_name: prd-1-production
+      spin_overrides:
+        ib-kafka:
+          namespace: kafka
+        ib-fluentd:
+          templates:
+            prod: prod
+        ib-nginx-ingress:
+          namespace: ib-system
+          helmArgs: --set=ingress-nginx.controller.extraArgs.default-ssl-certificate=ib-system/ingress-controller-wildcard-tls
+      version: v1.25
+    prd-mercury-east:
+      spin_app_name: prd-mercury-east
+      spin_overrides:
+        ib-kafka:
+          namespace: kafka
+        ib-fluentd:
+          templates:
+            prod: prod
+      version: v1.25
+    prd-mercury-west:
+      spin_app_name: prd-mercury-west
+      spin_overrides:
+        ib-kafka:
+          namespace: kafka
+        ib-fluentd:
+          templates:
+            prod: prod
+      version: v1.25
+    poseidon-prod:
+      spin_app_name: poseidon-prod
+      spin_overrides:
+        ib-fluentd:
+          templates:
+            prod: prod
+      version: v1.25
+  com-prod:
+    eu-com-1:
+      bloxinabox: true
+      flux_bootstrap: true
+    ib-hub:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      flux_bootstrap: true
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    us-com-1:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteAppNamespace: true
+      version: v1.31
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+      intKeysToStr: true
+  prod-shared:
+    cicd-prod:
+      bloxinabox: true
+      flux_bootstrap: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    devops-admin-prod:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    harbor-prod:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    vault-prod:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    devops-admin-eu:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services.eu.sdp.infoblox.com/harbor-proxy-cache/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.eu.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    harbor-eu:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services.eu.sdp.infoblox.com/harbor-proxy-cache/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.eu.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    vault-eu:
+      bloxinabox: true
+      repository:
+        type: oci
+        url: oci://harbor.services.eu.sdp.infoblox.com/harbor-proxy-cache/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.eu.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    cicd-eu-prod:
+      bloxinabox: true
+      flux_bootstrap: true
+      postRenderers:
+        deleteNamespace: true
+      version: v1.31
+      repository:
+        type: oci
+        url: oci://harbor.services.eu.sdp.infoblox.com/harbor-proxy-cache/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.eu.sdp.infoblox.com/harbor-proxy-cache/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+    o11y-prod:
+      bloxinabox: true
+      flux_bootstrap: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+  route53-dev:
+    route53-dev:
+      bloxinabox: true
+      flux_bootstrap: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+  route53-stage:
+    route53-stage-use1:
+      bloxinabox: true
+      flux_bootstrap: true
+      repository:
+        type: oci
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        secretRef: helm-chart-creds
+      helmrepo:
+        name: biab-helm-charts
+        url: oci://harbor.services.sdp.infoblox.com/charts
+        interval: 10m
+        secretRef:
+          name: helm-chart-creds
+linkerd:
+  excludeNamespaces:
+    - kube-system
+    - linkerd
+    - linkerd-multicluster
+    - linkerd-smi
+    - linkerd-viz
+    - cert-manager
+    - flux-system
+    - vela-system
+    - argo
+    - pipeline-system
+    - crossplane-system
+    - arc-systems
+    - ingress-nginx
+    - internal-ingress-nginx
+    - haproxy
+    - traefik
+    - fluentbit
+    - kyverno
+    - spire-server
+    - secrets-manager
+    - registry-creds
+    - cnapp-wiz
+    - metacontroller
+    - dapr
+    - dapr-x
+    - dapr-x-crds
+    - node-problem-detector
+    - kuberhealthy
+    - tugger
+    - vcluster
+    - teleport-ent
+    - teleport-root
+    - teleport-agent
+    - atlas-teleport-ingress-controller
+    - onprem-teleport
+    - onprem-teleport-jointoken-controller
+    - harbor
+    - kh-crds
+    - atlas-app-definition-crds
+    - poseidon-datalake-clickhouse-crds
